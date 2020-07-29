@@ -30,6 +30,9 @@ spec:
       containers:
       - name: hello-python
         image: hello-python:latest
+        env:
+        - name: VAR
+          value: "BONFY"
         imagePullPolicy: Never
         ports:
         - containerPort: 5000

@@ -3,6 +3,7 @@
 import time
 
 import redis
+import os
 from flask import Flask
 
 app = Flask(__name__)
@@ -24,4 +25,5 @@ def get_hit_count():
 @app.route('/')
 def hello():
     count = get_hit_count()
-    return 'Hello World! I have been seen {} times.\n'.format(count)
+    text = os.getenv('VAR', 'World')
+    return 'Hello {}! I have been seen {} times.\n'.format(text, count)
